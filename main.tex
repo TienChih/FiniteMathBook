@@ -1,0 +1,139 @@
+\documentclass[a4paper,twoside]{scrbook}
+\usepackage{layout}
+\usepackage{amsmath, amsthm}
+\usepackage{amssymb, amsrefs}
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{textcomp}
+\usepackage{esvect}
+\usepackage[letterpaper]{geometry}
+\usepackage{arydshln}
+\usepackage[all]{xy}
+\usepackage{etex}
+
+\usepackage[dvipsnames]{xcolor}  
+
+
+\usepackage{epsfig}
+\usepackage{latexsym}
+\usepackage{amsthm}
+
+\usepackage{mathrsfs}
+
+\usepackage[colorlinks,citecolor=blue]{hyperref}
+
+\usepackage[latin1]{inputenc}
+
+\usepackage{tikz-cd}
+\usetikzlibrary{graphs,graphs.standard}
+\usepackage{pgfplots}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+\usetikzlibrary{shapes.geometric}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{cor}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{defn}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{problem}[equation]{Problem}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{obs}[theorem]{Observation}
+
+
+
+\theoremstyle{definition}
+\numberwithin{equation}{section}
+
+
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname
+#1`/`basename #1 .tif`.png}
+\tikzset{
+    ncbar angle/.initial=90,
+    ncbar/.style={
+        to path=(\tikztostart)
+        -- ($(\tikztostart)!#1!\pgfkeysvalueof{/tikz/ncbar angle}:(\tikztotarget)$)
+        -- ($(\tikztotarget)!($(\tikztostart)!#1!\pgfkeysvalueof{/tikz/ncbar angle}:(\tikztotarget)$)!\pgfkeysvalueof{/tikz/ncbar angle}:(\tikztostart)$)
+        -- (\tikztotarget)
+    },
+    ncbar/.default=0.5cm,
+}
+
+\tikzset{square left brace/.style={ncbar=0.5cm}}
+\tikzset{square right brace/.style={ncbar=-0.5cm}}
+
+\tikzset{round left paren/.style={ncbar=0.5cm,out=120,in=-120}}
+\tikzset{round right paren/.style={ncbar=0.5cm,out=60,in=-60}}
+
+\newcommand{\Q}{\textbf{Question:\ }}
+\newcommand{\Sol}{\textbf{Solution:\ }}
+
+
+\newcommand{\Fisg}{\text{\textnormal{Fisg}}}
+\newcommand{\Iisg}{\text{\textnormal{Iisg}}}
+\newcommand{\Pisg}{\text{\textnormal{Pisg}}}
+\newcommand{\Tisg}{\text{\textnormal{Tisg}}}
+\newcommand{\Dom}{\text{\textnormal{Dom}}}
+\newcommand{\Img}{\text{\textnormal{Im}}}
+\DeclareMathOperator{\id}{id}
+
+\newcommand{\bcup}{\displaystyle\bigcup}
+\newcommand{\bcap}{\displaystyle\bigcap}
+\newcommand{\dsum}{\displaystyle\sum}
+\newcommand{\dint}{\displaystyle\int}
+
+
+
+\newcommand{\R}[1]{\mathbb{R}^{#1}}
+\newcommand{\C}[1]{\mathbb{C}^{#1}}
+\newcommand{\Z}[1]{\mathbb{Z}^{#1}}
+\newcommand{\K}[1]{\mathbb{K}^{#1}}
+
+
+\newcommand{\TCB}[1]{\textcolor{blue}{#1}}
+\newcommand{\TCR}[1]{\textcolor{red}{#1}}
+\newcommand{\TCO}[1]{\textcolor{orange}{#1}}
+\newcommand{\TCG}[1]{\textcolor{ForestGreen}{#1}}
+
+
+
+\DeclareMathOperator{\Endo}{Endo}
+\DeclareMathOperator{\Aut}{Aut}
+
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Obj}{Obj}
+
+\DeclareMathOperator{\pleat}{\mathcal{P}\ell}
+
+
+
+\def \PX {\mathfrak{W}G}
+
+\def \Gph {\mathsf{Gph}}
+\def \HoGph {\mathsf{HoGph}}
+\def \into {\hookrightarrow}
+
+\def \con {\underline{\phantom{w}}}
+\definecolor{laura}{rgb}{.4, 0, .6}
+
+
+%--------------------------------------------------------------------------------------------------------------------------------------------------
+
+\begin{document}
+\title{Finite Mathematics}
+\subtitle{A Tour}
+\author{Tien Chih}
+\date{}
+\frontmatter
+\maketitle
+\tableofcontents
+\mainmatter
+%\include{FMLinear}
+\include{FMMatrix}
+\end{document}
