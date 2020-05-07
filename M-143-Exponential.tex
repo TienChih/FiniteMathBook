@@ -1,0 +1,208 @@
+\documentclass[10pt]{article}
+
+% The following command leaves more space between lines.  That's great
+% when correcting drafts.  When you comment it out, however, the
+% output looks much nicer.
+%
+\linespread{1.0}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{epsfig}
+\usepackage{latexsym}
+\usepackage{amsthm}
+
+\usepackage{mathrsfs}
+
+\usepackage{multicol}
+
+
+
+\usepackage[colorlinks,citecolor=blue]{hyperref}
+
+\usepackage[latin1]{inputenc}
+
+\usepackage{tikz-cd}
+\usepackage{pgfplots}
+
+%\usepackage{3dplot}
+
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+
+
+\usepackage[scale=0.8]{geometry}
+
+
+%\usepackage{umoline}\setlength{\UnderlineDepth}{1pt}
+%\usepackage[linktocpage=true]{hyperref}
+
+\input xy
+\xyoption{all}
+
+
+%\addtolength{\hoffset}{-.5in}
+%\addtolength{\textwidth}{1in}
+%\setlength{\parindent}{.5in}
+%\setlength{\textheight}{9.5in} \setlength{\topmargin}{-2cm}
+
+
+\pagestyle{myheadings}\parindent 0em
+
+
+
+
+\usepackage[latin1]{inputenc}
+
+
+%------------------copy and posted code from the internets-------------
+
+%\numberwithin{equation}{section} % comment out when neccessary
+
+\newtheorem{theorem}[equation]{Theorem}
+\newtheorem{lemma}[equation]{Lemma}
+\newtheorem{proposition}[equation]{Proposition}
+\newtheorem{corollary}[equation]{Corollary}
+
+
+\theoremstyle{definition}
+\newtheorem{definition}[equation]{Definition}
+\newtheorem{example}[equation]{Example}
+\newtheorem{remark}[equation]{Remark}
+\newtheorem{problem}[equation]{Problem}
+
+
+
+\newcommand{\R}[1]{\mathbb{R}^{#1}}
+\newcommand{\C}[1]{\mathbb{C}^{#1}}
+\newcommand{\Z}[1]{\mathbb{Z}^{#1}}
+\newcommand{\K}[1]{\mathbb{K}^{#1}}
+\newcommand{\embed}[0]{\hookrightarrow}
+\newcommand{\TT}[4]{\begin{tabular}{| c | c |}\hline $#1$ & $#2$ \\ \hline $#3$ & $#4$ \\ \hline\end{tabular}} %goddamn it
+\newcommand{\partd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\limit}[2]{\displaystyle{ \lim_{#1 \to #2}}}
+\newcommand{\vectornorm}[1]{\left|\left|#1\right|\right|}
+\newcommand{\Ker}[0]{\text{\textnormal{Ker}}}
+\newcommand{\Hom}[0]{\text{\textnormal{Hom}}}
+\newcommand{\circled}[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+
+\newcommand{\T}{\rotatebox[origin=c]{180}{$\scriptscriptstyle \perp $}}
+\newcommand{\x}{\textbf{x}}
+\newcommand{\y}{\textbf{y}}
+\newcommand{\supp}{\text{\textnormal{supp}}}
+\newcommand{\csupp}{\text{\textnormal{cosupp}}}
+\newcommand{\found}{\text{\textnormal{found}}}
+\newcommand{\roof}{\text{\textnormal{roof}}}
+
+\newcommand{\bcup}{\displaystyle\bigcup}
+\newcommand{\bcap}{\displaystyle\bigcap}
+\newcommand{\dsum}{\displaystyle\sum}
+\newcommand{\dint}{\displaystyle\int}
+
+
+
+
+
+\begin{document}
+%
+
+{\bf Name:} \hrulefill\hrulefill\hrulefill\\
+{\bf M143} \qquad \qquad \\
+{\bf Exponential  and Logarithmic Functions}\\ %(look familiar??)\\
+%Show all work for full/partial credit.
+%---------------- End of the document ---------------
+
+\section{Exponential}
+
+\begin{definition}
+An \textbf{exponential function} is a function $f(x)$ which may be written as $f(x)=b\cdot a^x$.
+\end{definition}
+
+We should note that we've seen exponential functions before, in the guise of compound interest.  If the future value of a debt is $S=P(1+i)^x$ after $x$ unites of time, then $P$ is your $b$ and $1+i$ is your $a$.\\
+
+We should also note that there is a real kinship between exponential functions and linear functions.  Linear functions have the form $\ell(x)=mx+b$, which we can think of as $\ell(x)=\overbrace{m+m+\cdots+m}^x+b$, with $x$ copies of $m$.  Similarly we can see that $f(x)=b\cdot a^x=\overbrace{a\cdot a\cdots a}^x\cdot b$, so it is really the multiplicative analogue of the linear function, where the $b$'s are the initial value of the function when $x=0$ and the growth rate of the function is totally determined by $a$ (whereas it's determined by $m$ for linear functions).\\
+
+In that way, we can also tell when $f(x)=b\cdot a^x$ is increasing or decreasing, just by looking at whether or not $a>1$ or $a<1$.  If $a>1$ it is increasing: \url{https://www.desmos.com/calculator/edktzphc6x} if $a<1$ then it's decreasing: \url{https://www.desmos.com/calculator/rpiu9qc4ty}.\\
+
+
+Exponential functions are used to model anything that grows or decays proportionately to  it's current value.  So for example debts or investment accrue proportionately to how much debt/investment there already is.  Population is another example, the greater the population, the more reproduction there will be within that population and the greater the increase in population.
+
+\section{Logarithmic}
+
+So looking at any exponential function, but specifically for increasing ones, we notice that they are 1-1, meaning two different inputs give you 2 different outputs.  Thus, $f(x)=a^x$ is an invertible function.  You can see in these graphs \url{https://www.desmos.com/calculator/cvriy608bg} that reflecting the exponential over the $y=x$ line giving us the green function is another function.  We call this function $\log_a(x)$.  As the inverse of an exponential function, it has some properties:
+
+\begin{itemize}
+\item \textbf{It's domain is only positive numbers}.  Why?  Because the only possible outputs of exponential outputs are positive numbers.  Taking the inverse reverses the roles of the domain and range, and so the domain of $\log_a$ is the positives.
+\item \textbf{As $\mathbf{x}$ goes to 0, $ \mathbf{\log_a(x)}$ goes to $\mathbf{-\infty}$.}   This is the result of the reflection.  Normally $a^x$ (for $a>1$) goes to 0 as $x\to -\infty$, so when reflected, that line is now asymptotic to the $y$-axis.  Also $\log_a$ returns the power necessary to achieve the value $x$.  If $x$ is a small number like 0.0001, what power would I have to raise $a$ to to get $0.0001$?  It can't be 0, $a^0=1$, so it has to be \textbf{less} than 0, and the smaller $x$ is, the lower this power must go.
+
+\item  As $\mathbf{x\to\infty, \log_a(x)\to \infty}$, again this is the result  of the reflection, but we can also think of this as the powers $a$ needs to be raised to in order to achieve $x$, as this increases, those powers must increase as well.
+
+\item $\log_a(xy)=\log_a(x)+\log_a(y)$. Too see this consider:
+
+\begin{eqnarray*}
+xy&=&a^{\log_a{xy}}\\
+xy&=&x\cdot y\\
+&=&a^{\log_a(x)}\cdot a^{\log_a(y)}\\
+&=&a^{\log_a(x)+\log_a(y)}.
+\end{eqnarray*}
+
+
+\item $\log_a(x^y)=y\log_a(x)$.  To see this, consider:
+
+\begin{eqnarray*}
+x^y&=&a^{\log_a(x^y)}.\\
+x^y&=&(a^{\log_a(x)})^y\\
+&=&a^{y\log_a(x)}
+\end{eqnarray*}
+
+
+
+\end{itemize}
+
+Typically most textbooks include a whole bunch of other arithmetic rules, but they can all be distilled from the 2 above so they're all totally pointless.\\
+
+Special cases of logs are log base 10 which is usually just denoted $\log$ and log based $e$, which is denoted $\ln$.  Astronomers and other scientists like $\log$ since taking $\log$ base 10 gives you approximate magnitude of stuff.  As a mathematician, I prefer $\ln$ since $e$ has pretty special mathematical properties, plus it's shorter, which makes it better.\\
+
+The main use of logs algebraically is to de-exponentiate expressions.  So if one is trying to solve $10=2^x$, we could do this via:
+
+\begin{eqnarray*}
+10&=&2^x\\
+\ln(10)&=&\ln(2^x)\\
+\ln(10)&=&x\ln(2)\\
+x&=&\frac{\ln(10)}{\ln(2)}\approx 3.3219.
+\end{eqnarray*}
+
+One can also solve problems like this visually:  \url{https://www.desmos.com/calculator/t0pojr0gel}.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
