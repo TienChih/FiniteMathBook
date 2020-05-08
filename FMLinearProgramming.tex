@@ -1,0 +1,104 @@
+
+\chapter{Linear Programming}\label{Chapter:LinearProgramming}
+
+
+\section{Linear Inequalities}\label{Section:LinearInequalities}
+
+Remember when we said the solution to something like $$2x+3y=12$$ is the collection of all points $(x,y)$ that make this statement true.  For equations of the form above, that forms a line.  If however if we replace the $=$ with an inequality like so:
+
+$$2x+3y\leq12$$
+
+What we now mean is every pair $(x,y)$ that make THIS statement true.  So that would include every point on the line $2x+3y=12$, as well as say $(0,0), (1,2), (1,3)$ but not $(1,4)$ (plug them in to see why.)  Obviously, just like in lines, we don't want to test every one of infinitely many points to see what's going on.\\
+
+So, we note that $2x+3y=12$ is a line:  \url{https://www.desmos.com/calculator/spsryp8xxl}
+
+The inequality $2x+3y\leq12$ is not just this line, but the entire half of the plane where $2x+3y$ is some value that is less than 12.  The number 12 cuts the number line in half, numbers less than, and greater than 12, so it makes sense that this line cuts the $x,y$ plane in half as well, we just need to pick a half.\\
+
+Well, we know that $2(0)+3(0)=0\leq12$, and so our half should be the half that contains $(0,0)$.  In general, you can pick any point you want and test it.  For example, if we picked (5,5), we would observe that $2(5)+3(5)=25\not\leq 12$ and so we should pick the half that DOESN'T contain $(5,5)$.  Either way, we obtain: \url{https://www.desmos.com/calculator/yvb1odxncf}
+
+
+\section{Systems of Linear Inequalities}\label{Section:SystemsLinearInequalities}
+
+If a solution to a system of equations is a set of points that make several equations true, then the same is true of systems of linear inequalities.  It's just going to be the collection of points that make all the inequalities true.
+
+
+\begin{example}
+What is the solution to the following system:
+
+\begin{eqnarray*}
+2x+3y&\leq&12\\
+x&\geq&0\\
+y&\geq&0
+\end{eqnarray*}
+
+We know from earlier that the solutions have to lie in the bottom right hand of the plane on or below the line $2x+3y=12$.  We also know that neither the $x$ or $y$ values can be negative.  What's left is a sort of triangle: \url{https://www.desmos.com/calculator/2dekmagipa}, the overlap of regions where all 3 inequalities are true.\\
+
+This may be easier to see: \url{https://www.desmos.com/calculator/apmcey4kfa}.
+
+
+
+
+
+\end{example}
+
+\newpage
+\section{Linear Optimization}\label{Section:LinearOptimization}
+
+\begin{example}
+Find $(x,y)$ such that:
+
+\begin{eqnarray*}
+2x+3y&\leq&12\\
+x&\geq&0\\
+y&\geq&0
+\end{eqnarray*}
+
+and $f(x,y)=x+y$ is maximized.\\
+
+From above, we know that this region is a triangle in the first quadrant.  We want to find the point(s) in this region where by taking the sum of the points, we get as large as a value as possible.  There are infinitely many points in this region, how are we ever going to find the one that makes this sum the largest?\\
+
+Well, we know that given every possible output from the objective function $f$ i.e.\ every possible $k$ so that $x+y=k$, this actually defines a line: \url{https://www.desmos.com/calculator/qststwgxro}.  In the link you can see the line when $k=0$.  There is one point $(0,0)$ which is actually a part of our region which would give this output.  As we drag $k$ upwards, we see that there is a line segment worth of points in our region which would give that $k$ as an output.  At $k=4$ \url{https://www.desmos.com/calculator/iy5rq5hpxa} we hit a corner of the region but we see that we can still increase $k$.  Now at $k=6$ \url{https://www.desmos.com/calculator/qwrti1mxln}, we see that we've hit another corner.  Very importantly, if we try to increase $k$ at all, our line will fall outside of the feasible region and there will be no points that would give such a $k$ as an output.\\
+
+So, it must be that the largest $k$ can be is 6, and that this happens at $(6,0)$.  One can check to see that this point satisfies all the criteria above.  Most importantly though: \textbf{IT MEANS TO FIND OPTIMAL SOLUTIONS ONE JUST NEEDS TO FIND THE CORNERS OF THE REGION}.  This is because if your line isn't on a corner, you can still slide that value up or down, so the corresponding $k$ value is neither maximal or minimal.
+
+
+\end{example}
+
+\begin{example}
+
+Suppose that a agriculture student is raising goats and pigs for a project.  The goal is to raise some animals and then sell them for profit.  She can raise a total of at most 16 animals.  It costs \$25 per goat and \$ 75 per pig, and she has a budget of \$900.  Finally, she doesn't particularly like goats, so she won't raise more than 10 of them.  If the profit per goat is \$12 and profit per pig is \$40, how many of each should she raise to maximize profits?\\
+
+We should note, if $x$ is the number of goats and $y$ the number of pigs, then she is maximizing $P(x,y)=12x+40y$.  The inequalities she is dealing with are:
+
+\begin{eqnarray*}
+x+y&\leq&16\ \ \text{at most 16 animals}\\
+25x+75y&\leq&900\ \ \text{\$900 budget}\\
+x&\leq&10\ \ \text{hates goats}\\
+x&\geq&0\ \ \text{no negative goats}\\
+y&\geq&0\ \ \text{no negative pigs}
+\end{eqnarray*}
+
+Sketching our region out we get:  \url{https://www.desmos.com/calculator/lwbkvibuyq}, with corner points:
+
+$$\begin{array}{c|c|c}
+x & y & P(x,y)\\
+\hline
+0 & 0 & 12(0)+40(0)=0\\
+10 & 0 & 12(10)+40(0)=120\\
+10 & 6 & 12(10)+40(6)=360\\
+6 & 10 & 12(6)+40(10)=472\\
+0 & 12 & 12(0)+40(12)=480\\
+\end{array}$$
+
+So the profit is maximized when you raise 12 pigs and no goats.  To get a better sense of how we found these corners, these are just system of $2\times 2$ systems of equations: \url{https://www.desmos.com/calculator/bzczxrkggy}
+
+
+\end{example}
+
+
+
+
+
+
+
+

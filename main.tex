@@ -30,6 +30,8 @@
 \usepackage{pgfplots}
 \usetikzlibrary{matrix,arrows,decorations.pathmorphing}
 \usetikzlibrary{shapes.geometric}
+\usepackage{circuitikz}
+
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
@@ -94,6 +96,7 @@
 \newcommand{\C}[1]{\mathbb{C}^{#1}}
 \newcommand{\Z}[1]{\mathbb{Z}^{#1}}
 \newcommand{\K}[1]{\mathbb{K}^{#1}}
+\newcommand{\limit}[2]{\displaystyle{ \lim_{#1 \to #2}}}
 
 
 \newcommand{\TCB}[1]{\textcolor{blue}{#1}}
@@ -134,6 +137,14 @@
 \maketitle
 \tableofcontents
 \mainmatter
-%\include{FMLinear}
+\include{FMLinear}
 \include{FMMatrix}
+\include{FMLinearProgramming}
+\include{FMLogic}
+\include{FMFinancial}
+\include{FMNonlinear}
+\include{FMCalculus}
+
+
+
 \end{document}

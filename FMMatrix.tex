@@ -1,4 +1,4 @@
-\chapter{Systems of Linear Equations and Matrices}
+\chapter{Systems of Linear Equations and Matrices}\label{Chapter:Matrices}
 
 
 \section*{Introduction}
@@ -7,7 +7,7 @@ In this chapter, we introduce the notion of Linear Systems.  Linear Systems occu
 
 
 
-\section{Systems of Linear  Equations}
+\section{Systems of Linear  Equations}\label{Section:SystemsofEquations}
 
 A system of equations with unknowns $x_1,\ldots,x_n$ is a collection of first degree equations:
 
@@ -276,7 +276,7 @@ So all you have to do is find a pair $(x,y)$ so that $0=1$... which is not ever 
 
 
 
-\section{Representing a System of Linear Equations as a Matrix}
+\section{Representing a System of Linear Equations as a Matrix}\label{Section:SystemasMatrix}
 
 Given a system of equations, we can try to encode that information in a matrix:
 
@@ -878,7 +878,7 @@ $$ \left( \begin{array}{rrr|r}
 
 \end{example}
 
-\section{Products and Sums of Matrices}
+\section{Products and Sums of Matrices}\label{Section:MatrixArithmetic}
 
 In the previous sections, we saw how the entries of matrix may be used to record relationships between two collections of variables.  For example in Example \ref{Example:Vitamin}, the entries in the $3\times 3$ portion of the matrix represents the proportion of vitamins contained by a collection of supplements, with each entry representing a vitamin-supplement pair.  It is natural then, to wonder if we could combine relationships between variables or compose them.  The operations behind these ideas are the sums and products of matrices.
 
@@ -1161,7 +1161,7 @@ Company $B$ gets in on this action and will give 2 dollars to each charity for e
 So \$$4.7 F+4.4M$ for Elderly and $\$7.3 F+6.6M$ for Homeless.
 \end{example}
 
-\section{Computation using Sage}
+\section{Computation using Sage}\label{Section:MatrixSage}
 
 As usual, this seems like it should be much easier using technology.  Let's suppose $A=\begin{pmatrix} 1 & 2 \\ 3 & 4\end{pmatrix}, B=\begin{pmatrix} 5 & 6 \\ 7 & 8\end{pmatrix}$.  Verify that:
 
